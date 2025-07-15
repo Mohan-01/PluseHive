@@ -1,5 +1,5 @@
 import jwt, { SignOptions, VerifyOptions } from 'jsonwebtoken';
-import ms from 'ms';
+import type { StringValue } from 'ms';
 
 function getEnvOrThrow(key: string): string {
   const value = process.env[key];
@@ -13,7 +13,7 @@ const JWT_SECRET = getEnvOrThrow('JWT_SECRET');
 const JWT_ALGORITHM = getEnvOrThrow('JWT_ALGORITHM') as jwt.Algorithm;
 const JWT_ISSUER = getEnvOrThrow('JWT_ISSUER');
 const JWT_AUDIENCE = getEnvOrThrow('JWT_AUDIENCE');
-const JWT_EXPIRES_IN = getEnvOrThrow('JWT_EXPIRES_IN') as ms.StringValue;
+const JWT_EXPIRES_IN = getEnvOrThrow('JWT_EXPIRES_IN') as StringValue;
 
 
 const signOptions: SignOptions = {
